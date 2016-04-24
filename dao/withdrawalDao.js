@@ -184,6 +184,7 @@ module.exports = {
         if(!ids||ids.length<1){
             return;
         }
+        var values = [];
         var sql =$sql.checkPaymentWithdrawalByIds +" ( ";
         for(var i=0; i<ids.length;i++){
             sql += '?'
@@ -312,6 +313,8 @@ module.exports = {
             timeout : 60000
         };
         pool.query(sqlObj,function (err,rows) {
+
+            console.log(sql,values)
             if(err){
                 console.error(err);
                 //connection.release();
@@ -330,7 +333,7 @@ module.exports = {
                         }
                     }
                     sql += " ) "+$sql.getGiftWithdrawalByIds2;
-                    sqlObjT.sql =sql
+                    sqlObjT.sql =sql;
                     sqlObjT.values = values2;
                     sqlObjT.timeout = 60000;
                     pool.query(sqlObjT,function (err,rowsin) {

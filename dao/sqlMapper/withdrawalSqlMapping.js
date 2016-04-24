@@ -28,7 +28,7 @@ var withdrawal = {
     +" a.giftid as logcontent, FROM_UNIXTIME(  a.shoppingTime , '%Y' ) as tyear,FROM_UNIXTIME(  a.shoppingTime , '%m' )  as tmonth"
     +"     ,a.shoppingTime as shoppingTime ,ifnull(b.deductpc,0.1)*a.shoppingCost as earn "
     +" from ( "
-    +" select t1.*,t2.userName  FROM (select i.recordid as id, i.points as shoppingCost,i.touserid as userid,i.sendtimeline as shoppingTime,i.giftid as giftid from oepre_gift_record i " +
+    +" select t1.*,t2.userName  FROM (select i.recordid as recordid, i.points as shoppingCost,i.touserid as userid,i.sendtimeline as shoppingTime,i.giftid as giftid from oepre_gift_record i " +
     "where i.flag = 1 and i.points >0 and (i.sendtimeline between ? and ? )) t1 ,oepre_user t2  where t1.userid = t2.userid) a , "
     +" oepre_user_status b  WHERE b.refereeid is not null and a.userid = b.userid ",
     //insertWithdrawal
@@ -62,7 +62,7 @@ var withdrawal = {
     +" select t1.*,t2.userName  FROM " +
     "(select i.recordid as recordid ,i.points as shoppingCost,i.touserid as userid,i.sendtimeline as shoppingTime,i.giftid as giftid from oepre_gift_record i " +
     " where i.flag = 1 and i.points >0 and i.touserid in " ,
-    getGiftWithdrawalByIds2 :") t1 ,oepre_user t2  where t1.userid = t2.userid) a , "
-    +" oepre_user_status b  WHERE b.refereeid is not null and a.userid = b.userid ",
+    getGiftWithdrawalByIds2 :" ) t1 ,oepre_user t2  where t1.userid = t2.userid) a , "
+    +" oepre_user_status b  WHERE b.refereeid is not null and a.userid = b.userid "
 };
 module.exports = withdrawal;
