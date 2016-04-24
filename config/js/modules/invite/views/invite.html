@@ -1,0 +1,62 @@
+<div class="row wrapper border-bottom white-bg page-heading ng-scope">
+  <div class="col-lg-10">
+    <h2>邀请人管理</h2>
+
+    <ol class="breadcrumb">
+      <li>
+        <a>所在位置</a>
+      </li>
+      <li class="active">
+        <strong>邀请人管理</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="ibox">
+      <div class="ibox-content">
+        <div class="row">
+          <!--<div class="col-sm-2">
+            年 :<select class="input-sm input-s-sm inline" ng-options="itemy as itemy for itemy in yearAry"  ng-model="yearSelect">
+            <option value="">全部</option>
+          </select>
+          </div>
+          <div class="col-sm-2">
+            月份 : <select class="input-sm input-s-sm inline" ng-options="item as item for item in monthAry" ng-model="monthSelect">
+            <option value="">全部</option>
+          </select>
+          </div>-->
+          <form class="form-horizontal" style="margin-left: 30px;">
+            <div class="col-sm-1 form-group">
+              <label class="control-label">注册时间:</label>
+
+              </div>
+            <div class="col-sm-6 form-group">
+              <label class="col-sm-1 control-label">从</label>
+              <div class="col-sm-5">
+                <input class="form-control" type="date" ng-model="regDateS"/>
+              </div>
+              <label class="col-sm-1 control-label">到</label>
+              <div class="col-sm-5">
+                <input class="form-control" type="date" ng-model="regDateE"/>
+              </div>
+            </div>
+          <div class="col-sm-3">
+            <div class="input-group"><input type="text" ng-model="searchText" placeholder="别名" ng-keypress="enterPress()" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary" ng-click="getPage()"> 查询</button> </span></div>
+           </div>
+          </form>
+        </div>
+
+        <div class="row">
+          <div class="panel-body">
+            <div ui-grid="gridOptions" ui-grid-pagination class="grid"></div>
+          </div>
+        </div>
+
+
+      </div></div></div></div>

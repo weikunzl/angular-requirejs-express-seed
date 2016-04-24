@@ -1,0 +1,1 @@
+define([],function(){"use strict";return{stateId:"deduct",config:{url:"/deduct/:page",templateUrl:"js/modules/deduct/views/deduct.html",controller:"deductController"}}});

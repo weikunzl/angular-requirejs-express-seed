@@ -1,0 +1,1 @@
+define([],function(){var i=["deduct","income","invite","inviteUrl","setting","withdrawal"];return window.config={appName:"flowWarning",modules:i,host:"/config"}});

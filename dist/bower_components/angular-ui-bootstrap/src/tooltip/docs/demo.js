@@ -1,0 +1,1 @@
+angular.module("ui.bootstrap.demo").controller("TooltipDemoCtrl",function(t,o){t.dynamicTooltip="Hello, World!",t.dynamicTooltipText="dynamic",t.htmlTooltip=o.trustAsHtml("I've been made <b>bold</b>!"),t.placement={options:["top","top-left","top-right","bottom","bottom-left","bottom-right","left","left-top","left-bottom","right","right-top","right-bottom"],selected:"top"}});

@@ -1,0 +1,21 @@
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 class="modal-title">完善账户信息</h4>
+        <small class="font-bold">完善账户信息,以便提成转入.</small>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" name="bankForm">
+            <div class="form-group"><label><b class="text-danger">*</b>开户人真实姓名</label> <input type="text" ng-model="tmpPerson.realName" placeholder="开户人真实姓名" class="form-control" required></div>
+            <div class="form-group"><label><b class="text-danger">*</b>开户银行及所在地</label> <input type="text" ng-model="tmpPerson.bankInfo" placeholder="开户银行及所在地" class="form-control" required></div>
+            <div class="form-group"><label><b class="text-danger">*</b>银行卡号</label> <input ng-model="tmpPerson.bankNumber" type="text" placeholder="银行卡号" class="form-control" required></div>
+            <div class="form-group"><label><b class="text-danger">*</b>手机号</label> <input type="text" ng-model="tmpPerson.phoneNumber" placeholder="手机号" class="form-control" required></div>
+            <div class="form-group"><label><b class="text-danger">*</b>常用邮箱</label> <input type="email" placeholder="email" ng-model="tmpPerson.bankEmail" class="form-control" required></div>
+            <p class="text-warning"> 备注:（请优先提供工行卡号，开户银行填写清楚，因为网银转账需要输入开户行，比如工行北京市朝阳区幸福路支行）</p>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-white" ng-click="cancel()">关闭</button>
+        <button type="button" class="btn btn-primary" ng-disabled="!bankForm.$valid" ng-click="ok()">保存</button>
+    </div>
+</div>
+

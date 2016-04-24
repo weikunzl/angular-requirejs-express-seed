@@ -1,0 +1,1 @@
+describe("Security concerns",function(){var e,t,n;beforeEach(module("ui.bootstrap.typeahead","ngSanitize")),beforeEach(inject(function(c,i,a){e=c,t=i,n=spyOn(a,"warn")})),it("should not call the $log service when ngSanitize is present",function(){e('before <script src="">match</script> after',"match"),expect(n).not.toHaveBeenCalled()})});

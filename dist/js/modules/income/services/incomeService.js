@@ -1,0 +1,1 @@
+define([],function(){"use strict";return["$http",function(t){return{getIncomeList:function(n){return t.post(config.host+"/income/getIncomeList",n)},payStatusHash:{0:"未支付",10:"支付完成"}}}]});

@@ -1,0 +1,1 @@
+angular.module("ui.bootstrap.demo").controller("PagerDemoCtrl",function(o){o.totalItems=64,o.currentPage=4});

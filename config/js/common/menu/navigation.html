@@ -1,0 +1,50 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav" id="side-menu">
+            <li class="nav-header">
+
+                <div class="dropdown profile-element" dropdown>
+                    <a class="dropdown-toggle" dropdown-toggle href>
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">{{user.userName}}</strong>
+                             </span>
+                                <span class="text-muted text-xs block">{{user.email}}
+                                    <!--<b class="caret"></b>-->
+                                </span>
+                            </span>
+                    </a>
+                    <!--<ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a ui-sref="profile">Profile</a></li>
+                        <li><a ui-sref="contacts">Contacts</a></li>
+                        <li><a ui-sref="inbox">Mailbox</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/login.html">Logout</a></li>
+                    </ul>-->
+                </div>
+                <div class="logo-element">
+                    We+
+                </div>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="deduct({page:1})"><i class="fa fa-diamond"></i> <span class="nav-label">提成管理</span> <span class="label label-primary pull-right">NEW</span></a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="income"><i class="fa fa-money"></i> <span class="nav-label">客户充值记录</span> <span class="label label-primary pull-right">NEW</span></a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="invite"><i class="fa fa-users"></i> <span class="nav-label">邀请人管理</span> <span class="label label-primary pull-right">NEW</span></a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="inviteUrl"><i class="fa fa-share-alt"></i> <span class="nav-label">邀请链接</span> </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="setting"><i class="fa fa-cogs"></i> <span class="nav-label">修改登录密码</span> </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="withdrawal"><i class="fa fa-credit-card"></i> <span class="nav-label">申请提现</span> </a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

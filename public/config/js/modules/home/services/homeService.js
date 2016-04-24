@@ -1,0 +1,1 @@
+define([],function(){"use strict";return["$http",function(t){return{test:function(){return t.get("books1.json")}}}]});

@@ -1,0 +1,1 @@
+define([],function(){"use strict";return{stateId:"home",config:{url:"/home",templateUrl:"js/modules/home/views/home.html",controller:"homeController"}}});

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Register</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">We+</h1>
+
+            </div>
+            <h3>欢迎加入推广后台管理</h3>
+            <p>请填写下列信息,已完成用户创建.</p>
+            <form class="m-t" name="reg" method="POST" role="form" >
+                <div class="form-group">
+                    <input type="text" class="form-control" name="userName" placeholder="昵称" required="">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="userid" placeholder="用户名" required="">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" placeholder="Email" >
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="tel" placeholder="电话号码">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="输入密码" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password2" placeholder="确认密码" required="">
+                </div>
+                <!--<div class="form-group">
+                        <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> 是否同意安全条款 </label></div>
+                </div>-->
+                <button type="button" onclick="doReg(reg)" class="btn btn-primary block full-width m-b">注册</button>
+                <button type="submit" class="hidden">注册</button>
+
+                <p class="text-muted text-center"><small>如果您已有自己的账号?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="login.html">登录</a>
+            </form>
+            <p class="m-t"> <small>WeCode company &copy; 2016</small>  </p>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/bootstrap.min.js"></script>
+    <!-- iCheck -->
+
+    <script>
+
+        function doReg(reg){
+            if(  reg['password'].value!=
+                    reg['password2'].value){
+                alert("两次密码不一致")
+                return ;
+            }
+            var data = {
+                password : reg['password'].value,
+                userName : reg['userName'].value,
+                userid : reg['userid'].value,
+                email : reg['email'].value,
+                tel : reg['tel'].value
+            }
+            console.log(data)
+            if(!data.userid||!data.userName||!data.password){
+                $('button[type="submit"]').click();
+            }
+            $.post('/config/login/doRegister',data, function (response) {
+                if(response==true){
+                    location.href = '/config/index.html'
+                }else{
+                    alert("用户已存在");
+                }
+            }).error(function(){
+                alert("用户已存在");
+            })
+        }
+    </script>
+</body>
+
+</html>

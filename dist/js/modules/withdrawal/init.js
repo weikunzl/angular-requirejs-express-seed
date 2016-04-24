@@ -1,0 +1,1 @@
+define(["angular","js/config","js/modules/withdrawal/controllers/withdrawalController","js/modules/withdrawal/services/withdrawalService","angular-clipboard"],function(r,a,l,e){"use strict";var i=r.module("rwmgt.withdrawal",["angular-clipboard"]);return i.controller("withdrawalController",l),i.service("withdrawalService",e),i});

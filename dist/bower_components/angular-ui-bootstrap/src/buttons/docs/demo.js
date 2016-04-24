@@ -1,0 +1,1 @@
+angular.module("ui.bootstrap.demo").controller("ButtonsCtrl",function(e){e.singleModel=1,e.radioModel="Middle",e.checkModel={left:!1,middle:!0,right:!1},e.checkResults=[],e.$watchCollection("checkModel",function(){e.checkResults=[],angular.forEach(e.checkModel,function(l,c){l&&e.checkResults.push(c)})})});

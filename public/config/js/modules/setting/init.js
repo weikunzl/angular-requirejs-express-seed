@@ -1,0 +1,1 @@
+define(["angular","js/config","js/modules/setting/controllers/settingController","js/modules/setting/services/settingService"],function(e,t,r,s){"use strict";var n=e.module("rwmgt.setting",[]);return n.controller("settingController",r),n.service("settingService",s),n});

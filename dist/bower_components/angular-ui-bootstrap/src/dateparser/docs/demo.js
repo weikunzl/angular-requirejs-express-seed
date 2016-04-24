@@ -1,0 +1,1 @@
+angular.module("ui.bootstrap.demo").controller("DateParserDemoCtrl",function(e,o){e.format="yyyy/MM/dd",e.date=new Date});

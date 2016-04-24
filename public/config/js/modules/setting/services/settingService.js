@@ -1,0 +1,1 @@
+define([],function(){"use strict";return["$http",function(t){return{doSavePwd:function(n){return t.post(config.host+"/login/doEditPwd",n)}}}]});

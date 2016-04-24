@@ -1,0 +1,124 @@
+body {
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+input {
+  font-size: 14px;
+  line-height: 180%;
+  color: #ffffff;
+  TEXT-DECORATION: none;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  background-color: transparent;
+  font-family: "Microsoft YaHei", "'微软雅黑'", "Microsoft JhengHei";
+}
+A {
+  font-size: 14px;
+  line-height: 180%;
+  TEXT-DECORATION: none;
+  color: #333333;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+A:link {
+  font-size: 14px;
+  line-height: 180%;
+  TEXT-DECORATION: none;
+  color: #333333;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+A:visited {
+  font-size: 14px;
+  line-height: 180%;
+  TEXT-DECORATION: none;
+  color: #333333;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+A:hover {
+  font-size: 14px;
+  line-height: 180%;
+  TEXT-DECORATION: none;
+  color: #4088C7;
+  font-family: "Microsoft YaHei", "'微软雅黑'", "Microsoft JhengHei";
+}
+A:active {
+  font-size: 14px;
+  line-height: 180%;
+  TEXT-DECORATION: none;
+  color: #D70101;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+.nav {
+  font-size: 16px;
+  line-height: 100%;
+  color: #333333;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+  TEXT-DECORATION: none;
+}
+.nav A:link {
+  font-size: 16px;
+  line-height: 100%;
+  color: #333333;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+  TEXT-DECORATION: none;
+}
+.nav A:visited {
+  font-size: 16px;
+  line-height: 100%;
+  color: #333333;
+  TEXT-DECORATION: none;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+.nav A:hover {
+  font-size: 16px;
+  line-height: 100%;
+  color: #EF0101;
+  TEXT-DECORATION: none;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+.nav A:active {
+  font-size: 16px;
+  line-height: 100%;
+  TEXT-DECORATION: underline;
+  color: #EF0101;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+.white {
+  font-size: 14px;
+  line-height: 180%;
+  TEXT-DECORATION: none;
+  color: #ffffff;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+.title1 {
+  font-size: 20px;
+  line-height: 100%;
+  TEXT-DECORATION: none;
+  color: #333333;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+.title2 {
+  font-size: 20px;
+  line-height: 100%;
+  TEXT-DECORATION: none;
+  color: #ffffff;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+.title3 {
+  font-size: 14px;
+  line-height: 180%;
+  TEXT-DECORATION: none;
+  color: #666666;
+  font-family: Microsoft YaHei, '微软雅黑', Microsoft JhengHei;
+}
+.title4 {
+  font-size: 14px;
+  line-height: 100%;
+  TEXT-DECORATION: none;
+  color: #EB544B;
+  font-family: "Microsoft YaHei", "'微软雅黑'", "Microsoft JhengHei";
+  font-weight: bold;
+}

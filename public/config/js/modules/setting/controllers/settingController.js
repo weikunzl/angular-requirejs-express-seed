@@ -1,0 +1,1 @@
+define([],function(){"use strict";return["$scope","settingService",function(e,n){e.doSavePwd=function(){return e.data.newPwd!=e.newPwd2?void alert("密码不一致"):void n.doSavePwd(e.data).success(function(n){alert("修改成功"),e.data={},e.newPwd2=null}).error(function(e,n){alert(e)})}}]});

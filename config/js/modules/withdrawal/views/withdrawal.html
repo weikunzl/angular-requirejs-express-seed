@@ -1,0 +1,77 @@
+<div class="row wrapper border-bottom white-bg page-heading ng-scope">
+    <div class="col-lg-10">
+        <h2>申请提现</h2>
+
+        <ol class="breadcrumb">
+            <li>
+                <a>所在位置</a>
+            </li>
+            <li class="active">
+                <strong>申请提现</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <h3 >
+        已保存的有效提现账户信息:
+    </h3>
+    <div class="row">
+        <div class="ibox">
+            <div class="ibox-content">
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>开户人真实姓名</th>
+                        <th>开户银行及所在地</th>
+                        <th>银行卡号</th>
+                        <th>手机号</th>
+                        <th>常用邮箱</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td>{{ person.realName || '-'}}</td>
+                        <td>{{ person.bankInfo || '-'}}</td>
+                        <td>{{ person.bankNumber || '-'}}</td>
+                        <td>{{ person.phoneNumber || '-'}}</td>
+                        <td>{{ person.bankEmail || '-'}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" ng-click="open()">编辑</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div></div></div>
+
+    <h3 >
+        申请提现:
+    </h3>
+    <div class="row">
+        <div class="ibox">
+            <div class="ibox-content">
+
+                <label ><strong style="color: red;">*</strong>请选择要提现的年月份:</label>
+                <br/>
+                <select class="input-sm input-s-sm inline" ng-options="itemy as itemy for itemy in yearAry"  ng-model="yearSelect">
+                </select>
+                <select class="input-sm input-s-sm inline" ng-options="item as item for item in monthAry" ng-model="monthSelect">
+                </select>
+            </div>
+
+
+
+        <div class="ibox-content">
+            <button class="btn btn-sm btn-primary" ng-click="applyPayMoney()">申请提现</button>
+        </div>
+        </div>
+    </div>
+</div>
+

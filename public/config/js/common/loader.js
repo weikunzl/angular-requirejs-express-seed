@@ -1,0 +1,1 @@
+define([],function(){"use strict";var r=function(r){var u=[];for(var n in r)u.push("js/modules/"+r[n]+"/init");return u},u=function(r){var u=[];for(var n in r)u.push("js/modules/"+r[n]+"/router");return u};return{loadModules:r,loadRouteRules:u}});

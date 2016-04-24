@@ -1,0 +1,1 @@
+define([],function(){"use strict";return["$http",function(t){return{getDeductList:function(n){return t.post(config.host+"/deduct/getDeductList",n)},sumNoPayment:function(n){return t.post(config.host+"/deduct/sumNoPayment",n)},sumWaitPayment:function(n){return t.post(config.host+"/deduct/sumWaitPayment",n)}}}]});

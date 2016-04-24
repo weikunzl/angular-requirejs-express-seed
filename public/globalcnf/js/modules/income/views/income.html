@@ -1,0 +1,59 @@
+<div class="row wrapper border-bottom white-bg page-heading ng-scope">
+  <div class="col-lg-10">
+    <h2>客户充值记录</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a>所在位置</a>
+      </li>
+      <li class="active">
+        <strong>客户充值记录</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="ibox">
+      <div class="ibox-content">
+        <div class="row">
+          <!--<div class="col-sm-2">
+            年 :<select class="input-sm input-s-sm inline" ng-options="itemy as itemy for itemy in yearAry"  ng-model="yearSelect">
+            <option value="">全部</option>
+          </select>
+          </div>
+          <div class="col-sm-2">
+            月份 : <select class="input-sm input-s-sm inline" ng-options="item as item for item in monthAry" ng-model="monthSelect">
+            <option value="">全部</option>
+          </select>
+          </div>-->
+          <form class="form-horizontal" style="margin-left: 30px;">
+            <div class="col-sm-3 ">
+              <div class="form-group">
+                <label class="col-sm-5 col-sm-5 control-label">交易状态:</label>
+                <div class="col-sm-7">
+                  <select class="form-control inline" ng-options="key as value for (key,value) in paymentStateAry" ng-change="getPage()" ng-model="payStateSelect">
+                    <option value="">全部</option>
+                  </select>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="col-sm-3">
+              <div class="input-group"><input type="text" ng-model="searchText" placeholder="别名"  ng-keypress="enterPress()" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary" ng-click="getPage()"> 查询</button> </span></div>
+            </div>
+          </form>
+        </div>
+
+        <div class="row">
+          <div class="panel-body">
+            <div ui-grid="gridOptions" ui-grid-pagination class="grid"></div>
+          </div>
+        </div>
+
+
+      </div></div></div></div>

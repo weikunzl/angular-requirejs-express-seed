@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>推广后台</title>
+
+    <!-- Font awesome -->
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Main Inspinia CSS files -->
+    <link href="css/animate.css" rel="stylesheet">
+
+    <link href="bower_components/angular-ui-grid/ui-grid.css" rel="stylesheet">
+    <link id="loadBefore" href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- Wrapper-->
+<div id="wrapper">
+
+    <!-- Navigation -->
+
+    <!--<div ng-include="'js/common/menu/navigation.html'"></div>-->
+    <app-menu></app-menu>
+
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+
+        <!-- Page wrapper -->
+        <div ng-include="'js/common/contentView/topnavbar.html'"></div>
+
+        <!-- Main view  -->
+        <div ui-view></div>
+
+        <!-- Footer -->
+        <div ng-include="'js/common/contentView/footer.html'"></div>
+
+    </div>
+    <!-- End page wrapper-->
+
+</div>
+<!-- End wrapper-->
+</body>
+<script type='text/javascript' src='bower_components/requirejs/require.js' data-main='main.js'></script>
+
+</html>

@@ -1,0 +1,54 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>修改密码</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a>所在位置</a>
+      </li>
+      <li class="active">
+        <strong>修改密码</strong>
+      </li>
+    </ol>
+
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+
+<div class="ibox">
+<div class="ibox-content">
+  <div class="panel-body">
+    <form name="settingForm" class="form-horizontal ng-pristine ng-valid">
+
+      <div class="hr-line-dashed"></div>
+      <div class="form-group"><label class="col-sm-2 control-label">原始密码</label>
+
+        <div class="col-sm-8"><input type="password" ng-model="data.oldPwd" class="form-control" name="password" required></div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="form-group"><label class="col-sm-2 control-label">新密码</label>
+
+        <div class="col-sm-8"><input type="password" ng-model="data.newPwd" class="form-control" name="password" required></div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="form-group"><label class="col-sm-2 control-label">重复新密码</label>
+
+        <div class="col-sm-8"><input type="password" ng-model="newPwd2" class="form-control" name="password" required>
+
+          <span ng-show="newPwd2&&data.newPwd&&data.newPwd!=newPwd2" class="help-block text-warning">两次密码输入不一致</span>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+          <button class="btn btn-primary" ng-disabled="settingForm.$invalid||data.newPwd!=newPwd2" type="button" ng-click="doSavePwd()">保存</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,1 @@
+define(["angular","js/config","js/modules/home/controllers/homeController","js/modules/home/services/homeService"],function(e,o,r,l){"use strict";var m=e.module("rwmgt.home",[]);return m.controller("homeController",r),m.service("homeService",l),m});

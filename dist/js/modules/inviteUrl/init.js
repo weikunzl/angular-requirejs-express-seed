@@ -1,0 +1,1 @@
+define(["angular","js/config","js/modules/inviteUrl/controllers/inviteUrlController","js/modules/inviteUrl/services/inviteUrlService"],function(e,r,i,l){"use strict";var n=e.module("rwmgt.inviteUrl",[]);return n.controller("inviteUrlController",i),n.service("inviteUrlService",l),n});
