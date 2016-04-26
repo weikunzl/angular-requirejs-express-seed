@@ -30,8 +30,23 @@
     </select>
         </div>
 
-    <div class="col-sm-2">
-      <button type="button" class="btn btn-sm btn-primary" ng-click="getPage()"> 查询</button> </div>
+    <div class="col-sm-4">
+      <div class="input-group">
+        <input type="text" ng-model="searchText" placeholder="请输入{{openSelectType.text}}"
+               ng-keypress="enterPress($event)"
+               class="form-control">
+
+        <div class="input-group-btn {{openSelect?'open':''}}" dropdown>
+          <button class="btn btn-white dropdown-toggle" style="height: 34px;" dropdown-toggle ng-click="openSelect=!openSelect;" type="button">{{openSelectType.text}} <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li ng-click="openSelectType={key:1,text:'客户姓名'};openSelect=false;"><a >客户姓名</a></li>
+            <li ng-click="openSelectType={key:2,text:'推广人id'};openSelect=false;"><a>推广人id</a></li>
+          </ul>
+
+          <button tabindex="-1" class="btn btn-success"  ng-click="getPage()" type="button">查询</button>
+        </div>
+      </div>
+    </div>
 
   <div class="col-sm-1">
     <span class="btn btn-sm btn-success" ng-click="doUpdatePayMoneyOk()"> 确认支付</span> </div>

@@ -23,10 +23,23 @@ module.exports = {
         var sql = $sql.deductList;
         var sqlCount = $sql.countDeductList;
         var values = [];
-        if(param.refereeid){
-            values.push(param.refereeid);
-            sql+=' and refereeid = ? ';
-            sqlCount+=' and refereeid = ? ';
+        //if(param.refereeid){
+        //    values.push(param.refereeid);
+        //    sql+=' and refereeid = ? ';
+        //    sqlCount+=' and refereeid = ? ';
+        //}
+
+        if(param.searchText&&param.searchText!='') {
+            values.push('%'+param.searchText+'%');
+
+            sql+=' and ( userName like ? ) ';
+            sqlCount+=' and ( userName like ?) ';
+        }
+        if(param.refereeid&&param.refereeid!=''){
+            values.push('%'+param.refereeid+'%');
+
+            sql+=' and ( refereeid like ? )';
+            sqlCount+=' and refereeid like ? ';
         }
         if(param.year) {
             values.push(param.year);

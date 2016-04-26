@@ -6,7 +6,7 @@ define(function(){
 
     return ['$scope','$stateParams','uiGridConstants','deductService','i18nService'
         , function($scope,$stateParams,uiGridConstants,deductService,i18nService){
-
+            $scope.openSelectType = {key:1,text:"客户姓名"};
             i18nService.setCurrentLang('zh-cn');
             $scope.monthAry = [1,2,3,4,5,6,7,8,9,10,11,12];
             $scope.yearAry = [];
@@ -80,6 +80,14 @@ define(function(){
                 var paramData = paramData1;
                 paramData.year = $scope.yearSelect;
                 paramData.month = $scope.monthSelect;
+
+                if($scope.openSelectType.key==2){//推广人id
+                    paramData.searchText = null;
+                    paramData.refereeid = $scope.searchText;
+                }else{
+                    paramData.refereeid = null;
+                    paramData.searchText = $scope.searchText;
+                }
                 deductService.getDeductList(paramData).success(function (response) {
                     //console.log($scope.gridOptions)
                         //
