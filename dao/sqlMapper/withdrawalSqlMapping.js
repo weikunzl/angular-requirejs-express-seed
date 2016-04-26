@@ -7,12 +7,15 @@ var withdrawal = {
     //countDeductList : "SELECT count(*) as total FROM CFG_OEPRE_DEDUCT_LIST WHERE refereeId = ? "
     //检查时间段内是否有记录生成.
     //升级类
-    checkMoneyWithdrawal : "select count(*) as total from oepre_user_money where  actiontype = 1 and (optime between ? and ? ) ",
+    checkMoneyWithdrawal : "select count(*) as total from oepre_user_money where (opuser != '' or opuser is not null  ) " +
+    " and (optime between ? and ? ) ",
     getMoneyWithdrawal : "SELECT b.refereeid as refereeid ,a.userName as aileName,a.actionid as id ,a.amount as shoppingCost " +
     " ,a.actiontype as shoppingType,a.logcontent as logcontent, a.tyear as tyear,a.tmonth as tmonth"
     +"   ,  a.optime as shoppingTime ,ifnull(b.deductpc,0.1)*a.amount as earn "
     +" from ( "
-    +" select t1.*,t2.userName  FROM (select i.* from oepre_user_money i where i.actiontype = 1 and (i.optime between ? and ?)  ) t1 ,oepre_user t2  where t1.userid = t2.userid) a , "
+    +" select t1.*,t2.userName  FROM (select i.* from oepre_user_money i where i.actiontype = 1 and (opuser != '' or opuser is not null  )"
+    +" and (i.optime between ? and ?) union all select i2.* from oepre_user_money i2 where (i2.opuser != '' or i2.opuser is not null  ) and i2.opuser != 'admin'"
+    +" and (i2.optime between ? and ?) and (i2.actiontype = 2 and i2.ordernum is null ) ) t1 ,oepre_user t2  where t1.userid = t2.userid) a , "
     +" oepre_user_status b  WHERE b.refereeid is not null and a.userid = b.userid ",
     //充值类
     checkPaymentWithdrawal : "select count(*) as total from oepre_payment_log where (addtime between ? and ? )  and paystatus=10 ",
@@ -24,7 +27,7 @@ var withdrawal = {
     +" oepre_user_status b  WHERE b.refereeid is not null and a.userid = b.userid ",
     //礼物类
     checkGiftWithdrawal : "select count(*) as total from oepre_gift_record where flag = 1 and points >0 and (sendtimeline between ? and ? )",
-    getGiftWithdrawal : "SELECT b.refereeid as refereeid ,a.userName as aileName,a.recordid as id ,a.shoppingCost as shoppingCost,2 as shoppingType," //充值类型
+    getGiftWithdrawal : "SELECT b.refereeid as refereeid ,a.userName as aileName,a.recordid as id ,a.shoppingCost as shoppingCost,4 as shoppingType," //充值类型
     +" a.giftid as logcontent, FROM_UNIXTIME(  a.shoppingTime , '%Y' ) as tyear,FROM_UNIXTIME(  a.shoppingTime , '%m' )  as tmonth"
     +"     ,a.shoppingTime as shoppingTime ,ifnull(b.deductpc,0.1)*a.shoppingCost as earn "
     +" from ( "
@@ -37,13 +40,15 @@ var withdrawal = {
     insertWithdrawal:"INSERT INTO cfg_oepre_deduct_list SET ? ",
     updateWithdrawal:"UPDATE cfg_oepre_deduct_list SET ? where id = ? and shoppingType = ? ",
 
-    checkMoneyWithdrawalByIds : "select count(*) as total from oepre_user_money where actiontype = 1 and userid  in ",
+    checkMoneyWithdrawalByIds : "select count(*) as total from oepre_user_money where  (opuser != '' or opuser is not null  ) and userid  in ",
     getMoneyWithdrawalByIds1 : "SELECT b.refereeid as refereeid ,a.userName as aileName,a.actionid as id ,a.amount as shoppingCost " +
     " ,a.actiontype as shoppingType,a.logcontent as logcontent, a.tyear as tyear,a.tmonth as tmonth"
     +"   ,  a.optime as shoppingTime ,ifnull(b.deductpc,0.1)*a.amount as earn "
     +" from ( "
-    +" select t1.*,t2.userName  FROM (select i.* from oepre_user_money i where i.actiontype = 1 and  i.userid in " ,
-    getMoneyWithdrawalByIds2 :" ) t1 ,oepre_user t2  where t1.userid = t2.userid) a , "
+    +" select t1.*,t2.userName  FROM (select i.* from oepre_user_money i where (i.opuser != '' or i.opuser is not null  ) and i.actiontype = 1 and  i.userid in " ,
+    getMoneyWithdrawalByIds2 :" union all select i2.* from oepre_user_money i2 where (i2.opuser != '' or i2.opuser is not null  ) and i2.opuser != 'admin'"
+    +"  and (i2.actiontype = 2 and i2.ordernum is null ) and i2.userid in ",
+    getMoneyWithdrawalByIds3 :" ) t1 ,oepre_user t2  where t1.userid = t2.userid) a , "
     +" oepre_user_status b  WHERE b.refereeid is not null and a.userid = b.userid ",
     checkPaymentWithdrawalByIds : "select count(*) as total from oepre_payment_log where paystatus=10 and userid in",
     getPaymentWithdrawalByIds1 : "SELECT b.refereeid as refereeid ,a.userName as aileName,a.paynum as id ,a.amount as shoppingCost,3 as shoppingType," //充值类型
@@ -55,7 +60,7 @@ var withdrawal = {
     +" oepre_user_status b  WHERE b.refereeid is not null and a.userid = b.userid ",
     //礼物
     checkGiftWithdrawalByIds : "select count(*) as total from oepre_gift_record where  flag = 1 and points >0 and touserid in ",
-    getGiftWithdrawalByIds1 : "SELECT b.refereeid as refereeid ,a.userName as aileName,a.recordid as id ,a.shoppingCost as shoppingCost,2 as shoppingType," //充值类型
+    getGiftWithdrawalByIds1 : "SELECT b.refereeid as refereeid ,a.userName as aileName,a.recordid as id ,a.shoppingCost as shoppingCost,4 as shoppingType," //充值类型
     +" a.giftid as logcontent, FROM_UNIXTIME(  a.shoppingTime , '%Y' ) as tyear,FROM_UNIXTIME(  a.shoppingTime , '%m' )  as tmonth"
     +"     ,a.shoppingTime as shoppingTime ,ifnull(b.deductpc,0.1)*a.shoppingCost as earn "
     +" from ( "

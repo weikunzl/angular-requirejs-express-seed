@@ -48,6 +48,8 @@ module.exports = {
     updateMoneyDeduct:function(sqlObj){
         console.log(2);
         sqlObj.sql = $sql.getMoneyWithdrawal;
+        sqlObj.values.push(sqlObj.values[0]);
+        sqlObj.values.push(sqlObj.values[1]);
         pool.query(sqlObj,function (err,rows) {
             if(err){
                 console.error(err);
@@ -142,17 +144,19 @@ module.exports = {
                 (function(sqlObjIn){
                     var values2 = [];
                     var sqlObjT  = sqlObjIn;
-                    var sql =$sql.getMoneyWithdrawalByIds1 +" ( ";
+                    var sqlInStr = "("
                     for(var i=0; i<ids.length;i++){
-                        sql += '?'
+                        sqlInStr += '?'
                         values2.push(ids[i]);
                         if(i!=(ids.length-1)){
-                            sql += ','
+                            sqlInStr += ','
                         }
                     }
-                    sql += " ) "+$sql.getMoneyWithdrawalByIds2;
+                    sqlInStr += " ) ";
+                    var sql=  $sql.getMoneyWithdrawalByIds1+sqlInStr
+                        +$sql.getMoneyWithdrawalByIds2+sqlInStr+$sql.getMoneyWithdrawalByIds3;
                     sqlObjT.sql =sql
-                    sqlObjT.values = values2;
+                    sqlObjT.values = [].concat(values2,values2);
                     sqlObjT.timeout = 60000;
                     pool.query(sqlObjT,function (err,rowsin) {
                         if(err){

@@ -21,9 +21,10 @@ define([
     //filter
     deductModule.filter('mapShoppingType', function() {
         var shoppingTypeHash = {
-            1: '升级',
-            2: '消费',
-            3:'充值'
+            1: '充值',
+            2: '升级',
+            3:'充值',
+            4:'礼物'
         };
 
         return function(input) {

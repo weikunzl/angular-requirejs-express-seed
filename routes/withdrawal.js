@@ -58,6 +58,7 @@ later.date.localTime();
  */
 var paymentTimeTemp = 0;//起始时间
 var moneyTimeTemp = 0;//起始时间
+var gifTimeTemp = 0;//起始时间
 var sched = later.parse.recur().every(1).hour(),
     t = later.setInterval(function() {
       try{
@@ -82,7 +83,7 @@ var sched = later.parse.recur().every(1).hour(),
     t2 = later.setInterval(function() {
       try{
         var giftNowTimeTemp =  parseInt(new Date().getTime()/1000);
-        withdrawalDao.checkGiftDeduct({startTime:paymentTimeTemp,endTime: giftNowTimeTemp});
+        withdrawalDao.checkGiftDeduct({startTime:gifTimeTemp,endTime: giftNowTimeTemp});
       }catch(e){
         t2.clear();
         console.log(e,"Clear!!!!!");
