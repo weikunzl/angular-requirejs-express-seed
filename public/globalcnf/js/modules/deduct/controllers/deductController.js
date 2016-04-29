@@ -104,8 +104,8 @@ define(function(){
                 getPage(paginationOptions);
             }
 
-            $scope.enterPress = function(){
-                if(event.keyCode = 13){
+            $scope.enterPress = function($event){
+                if($event.keyCode == 13){
                     getPage(paginationOptions);
                 }
             }

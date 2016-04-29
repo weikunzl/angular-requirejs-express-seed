@@ -32,8 +32,8 @@ module.exports = {
         if(param.searchText&&param.searchText!='') {
             values.push('%'+param.searchText+'%');
 
-            sql+=' and ( userName like ? ) ';
-            sqlCount+=' and ( userName like ?) ';
+            sql+=' and ( aileName like ? ) ';
+            sqlCount+=' and ( aileName like ?) ';
         }
         if(param.refereeid&&param.refereeid!=''){
             values.push('%'+param.refereeid+'%');

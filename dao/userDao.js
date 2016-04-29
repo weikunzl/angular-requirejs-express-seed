@@ -64,7 +64,7 @@ module.exports = {
                 req.session.user = rows[0];
                 var roleId = req.session.user.roleId;
                 delete req.session.user.password;
-                delete req.session.user.roleId;//清楚
+                //delete req.session.user.roleId;//清楚
 
                 if(roleId ==9){
                     res.redirect(config.hostcfg+'/index.html');
