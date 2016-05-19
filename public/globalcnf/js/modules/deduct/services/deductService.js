@@ -14,6 +14,10 @@ define(function(){
             },
              doUpdatePayMoneyNo:function(data){
                 return  $http.post(config.host+'/cfgdeduct/updatePayMoneyNo',data);
+            },
+			
+             doUpdatePayMoneyNo1:function(data){
+                return  $http.post(config.host+'/cfgdeduct/updatePayMoneyNo1',data);
             }
         }
     }]

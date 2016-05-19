@@ -1,1 +1,69 @@
-define(["angular","ui-router","ocLazyLoad","js/common/menu/appMenuDirective","ui.bootstrap","js/config"],function(t){return{init:function(o,r){var e=["ui.router","ui.bootstrap","oc.lazyLoad","appMenuDirectiveModule","ngCookies","pascalprecht.translate","ui.grid"];for(var n in o)e.push(o[n].name);t.module("rwmgt",e).run(["$rootScope","$state","$stateParams","$http",function(t,o,r,e){e.get(config.host+"/login/getUser").success(function(o){t.user=o}).error(function(){location.href=config.host+"/login.html"}),t.$state=o,t.$stateParams=r}]).config(["$ocLazyLoadProvider","$stateProvider","$urlRouterProvider","$translateProvider","$httpProvider",function(t,o,e,n,i){function a(t,o,r){if(t!=o.length){var e=o[t++];a(t,o,r.state(e.stateId,e.config))}}i.interceptors.push([function(){return{response:function(t){return t.status>300&&420==t.status?void(location.href=config.host+"/login.html"):t}}}]),t.config({debug:!0}),e.otherwise("/deduct/1"),a(0,r,o)}]).controller("translateCtrl",function(){})}}});
+define([
+		"angular",
+		"ui-router",
+        "ocLazyLoad",
+        "js/common/menu/appMenuDirective",
+        'ui.bootstrap',
+        'js/config',
+       ],function(angular){
+
+
+    return {
+        init :function(modules,routers){
+            //console.log(routers)
+            var deps =['ui.router','ui.bootstrap','oc.lazyLoad','appMenuDirectiveModule','ngCookies', 'pascalprecht.translate','ui.grid'];
+            for(var index in modules){
+                deps.push(modules[index].name);
+            }
+
+            var mainModule = angular.module('rwmgt',deps).run([ '$rootScope', '$state', '$stateParams','$http',
+                function ($rootScope, $state, $stateParams,$http) {
+                    $http.get(config.host+'/login/getUser').success(function(response){
+                        $rootScope.user = response;
+                    }).error(function(){
+                        location.href = config.host+'/login.html';
+                    });
+                    $rootScope.$state = $state;
+                    $rootScope.$stateParams = $stateParams;
+                }
+            ]).config(['$ocLazyLoadProvider','$stateProvider', '$urlRouterProvider','$translateProvider','$httpProvider', function($ocLazyLoadProvider,$stateProvider, $urlRouterProvider,$translateProvider,$httpProvider) {
+                $httpProvider.interceptors.push([function() {
+                    return {
+                        'response': function(response){
+                            if (response.status > 300) {
+                                if (response.status == 420) {
+                                    location.href = config.host+'/login.html';
+                                    return;
+                                }
+
+                                return response;
+                            }else{
+                                return response;
+                            }
+                        }
+                    }
+                }]);
+                $ocLazyLoadProvider.config({
+                     debug: true
+                 });
+                $urlRouterProvider.otherwise('/deduct/1');
+                //路由配置
+                stateConfig(0,routers,$stateProvider);
+                function stateConfig(index,configAry,stateProvider){
+                    if(index==configAry.length){
+                            return;
+                    }
+                    var item = configAry[index++];
+                    stateConfig(index,configAry,stateProvider
+                            .state(item.stateId,item.config));    
+                    
+                }
+                
+            }]).controller('translateCtrl',function(){});
+//            if(!ngGrid.config){
+//                ngGrid.config = {i18n : 'zh-cn'};
+//            }
+
+        }
+    };
+});

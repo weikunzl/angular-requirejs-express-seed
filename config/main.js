@@ -13,8 +13,8 @@ require.config({
         'ocLazyLoad':'bower_components/oclazyload/dist/ocLazyLoad.min',
         'angular-clipboard' : 'bower_components/angular-clipboard/angular-clipboard',
         'ui-grid' : 'bower_components/angular-ui-grid/ui-grid.min',
-        'ui.bootstrap' : 'bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls-0.12.0.min'
-        //'ui.bootstrap' : 'bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls'
+        //'ui.bootstrap' : 'bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls-0.12.0.min'
+        'ui.bootstrap' : 'bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls'
         //js文件
         //'bootstrap': "../scripts/bootstrap",
         //.....以及其他的js文件，这里省略
@@ -24,6 +24,7 @@ require.config({
             exports:'angular'
         },
         'bootstrap/bootstrap.min':['jquery'],
+        'bootstrap/ui-bootstrap-tpls-0.12.0':['jquery'],
         'ui-router':{
             deps:['angular'],
             exports: 'ui-router'

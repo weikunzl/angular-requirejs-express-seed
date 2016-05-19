@@ -4,7 +4,8 @@ define(['require',
    // 'js/app',
     'js/common/loader',
    'js/common/menu/appMenuDirective',
-    'ui-grid'
+    'ui-grid',
+    'ui.bootstrap'
     // 'router'
 ],function(require,angular,config,loader){
     'use strict';

@@ -17,6 +17,15 @@ define([
     inviteModule.controller('inviteController', inviteController);
 
     inviteModule.service('inviteService', inviteService);
-
+inviteModule.filter('mapDecType', function() {
+        
+        return function(input) {
+            if (!input){
+                return '10%';
+            } else {
+                return parseFloat(input)*100+"%";
+            }
+        };
+    });
     return inviteModule;
 });

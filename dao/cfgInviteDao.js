@@ -45,7 +45,7 @@ module.exports = {
             sql+=' and ( a.refereeid like ? )';
             sqlCount+=' and a.refereeid like ? ';
         }
-        sql += ' limit ?,?';
+        sql += ' order by a.regtime desc limit ?,? ';
         values.push((param.pageNumber-1)*param.pageSize)
         values.push(param.pageSize)
 
@@ -140,6 +140,13 @@ module.exports = {
             return ;
         }
         var values = [param.id];
+		var deductpc = '0.1';
+        try{
+            deductpc = parseInt(param.deductpc)/100 + '';
+        }catch(e){
+            deductpc = '0.1';
+        }
+        values.push(deductpc);
         var sql = $sql.updateRefereeUser+"(";
         for(var i=0; i<param.ids.length;i++){
             sql += '?'
@@ -167,7 +174,7 @@ module.exports = {
 
             withdrawalDao.updateMoneyDeductByIds(param.ids);
 
-            withdrawalDao.updatePaymentDeductByIds(param.ids);
+            //withdrawalDao.updatePaymentDeductByIds(param.ids);
             withdrawalDao.updateGiftDeductByIds(param.ids);
         })
 

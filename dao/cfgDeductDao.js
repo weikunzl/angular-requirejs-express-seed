@@ -52,7 +52,7 @@ module.exports = {
             sql+=' and tmonth=?'
             sqlCount+=' and tmonth=?'
         }
-        sql += ' limit ?,?';
+        sql += ' order by shoppingTime desc,refereeid limit ?,? ';
         values.push((param.pageNumber-1)*param.pageSize)
         values.push(param.pageSize)
 

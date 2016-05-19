@@ -70,16 +70,16 @@ var sched = later.parse.recur().every(1).hour(),
       }
       //moneyTimeTemp = moneyNowTimeTemp;
     }, sched),
-    t1 = later.setInterval(function() {
-      try{
-        var paymentNowTimeTemp =  parseInt(new Date().getTime()/1000);
-        withdrawalDao.checkPaymentDeduct({startTime:paymentTimeTemp,endTime: paymentNowTimeTemp});
-      }catch(e){
-        t1.clear();
-        console.log(e,"Clear!!!!!");
-      }
-      //paymentTimeTemp = paymentNowTimeTemp;
-    }, sched),
+    //t1 = later.setInterval(function() {
+    //  try{
+    //    var paymentNowTimeTemp =  parseInt(new Date().getTime()/1000);
+    //    withdrawalDao.checkPaymentDeduct({startTime:paymentTimeTemp,endTime: paymentNowTimeTemp});
+    //  }catch(e){
+    //    t1.clear();
+    //    console.log(e,"Clear!!!!!");
+    //  }
+    //  //paymentTimeTemp = paymentNowTimeTemp;
+    //}, sched),
     t2 = later.setInterval(function() {
       try{
         var giftNowTimeTemp =  parseInt(new Date().getTime()/1000);

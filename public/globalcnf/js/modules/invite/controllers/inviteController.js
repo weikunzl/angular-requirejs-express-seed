@@ -32,7 +32,7 @@ define(function(){
                     { name:'登录次数', field: 'loginTimes',enableCellEdit:false },
                     { name:'最后登录时间', field: 'lastLoginTime',type:'date',cellFilter:"date:'yyyy-MM-dd HH:mm:ss'",enableCellEdit:false },
                     { name:'注册时间', field: 'regTime',type:'date',cellFilter:"date:'yyyy-MM-dd HH:mm:ss'",enableCellEdit:false},
-                    //{ name:'提成比例', field: 'deductpc' ,defaultValue:0.1},
+                    { name:'提成比例', field: 'deductpc' ,cellFilter:"mapDecType"}
                 ],
                 data : [
                 ],
@@ -142,7 +142,17 @@ define(function(){
             };
 
             $scope.selectReferee = function(item){
-                inviteService.doUpdateRefereeUser({id :item.userid,ids:$scope.tmpSelection}).success(function(response){
+				
+				var decNum = prompt("请输入提成比率，单位（%）","10")
+				if(decNum){
+					try{
+						parseInt(decNum+"");
+					}catch(e){
+						
+						return;
+					}
+				}
+                inviteService.doUpdateRefereeUser({id :item.userid,ids:$scope.tmpSelection,deductpc:decNum}).success(function(response){
                     $scope.getPage();
                     $scope.modalInstance.close();
                 })

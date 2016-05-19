@@ -148,5 +148,18 @@ define(function(){
                     getPage(paginationOptions);
                 });
             }
+			
+            $scope.doUpdatePayMoneyNo1 = function(){
+                var selection = $scope.gridApi.selection.getSelectedRows($scope.gridApi);
+                if(!selection||selection.length==0){
+                    alert('至少选择一条数据.');
+                    return;
+                }
+                var  ary = getIds(selection);
+
+                deductService.doUpdatePayMoneyNo1(ary).success(function(response){
+                    getPage(paginationOptions);
+                });
+            }
     }]
 })

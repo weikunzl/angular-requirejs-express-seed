@@ -67,7 +67,7 @@ module.exports = {
 
         })
     },
-    checkPaymentDeduct : function (param) {
+    /*checkPaymentDeduct : function (param) {
         console.log(4);
         //pool.getConnection(function (err,connection) {
             var sqlObj = {
@@ -113,7 +113,7 @@ module.exports = {
             }
 
         })
-    },
+    },*/
     //根据列更新
     updateMoneyDeductByIds:function(ids){
         if(!ids||ids.length<1){

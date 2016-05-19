@@ -6,7 +6,7 @@ module.exports = {
     host : "/config",
     hostcfg : "/globalcnf",
     mysql: {
-        host:'127.0.0.1',
+        host:'118.193.244.212',
         user: 'root',
         password:'vJYnmq6f9Rdv9ZM2',
         database:'oelove31',

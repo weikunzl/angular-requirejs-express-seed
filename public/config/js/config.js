@@ -1,1 +1,16 @@
-define([],function(){var i=["deduct","income","invite","inviteUrl","setting","withdrawal"];return window.config={appName:"flowWarning",modules:i,host:"/config"}});
+define(function(){
+
+    var menuList =[
+        'deduct',
+        'income',
+        'invite',
+        'inviteUrl',
+        'setting',
+        'withdrawal'
+    ];
+	return window.config={
+		appName :'flowWarning',
+        modules : menuList,
+        host:'/config'
+	};
+});
