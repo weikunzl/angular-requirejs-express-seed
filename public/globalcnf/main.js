@@ -14,7 +14,9 @@ require.config({
         'angular-clipboard' : 'bower_components/angular-clipboard/angular-clipboard',
         'ui-grid' : 'bower_components/angular-ui-grid/ui-grid.min',
         //'ui.bootstrap' : 'bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls-0.12.0.min'
-        'ui.bootstrap' : 'bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls'
+        'ui.bootstrap' : 'bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls',
+        //'ngAnimate':'bower_components/ngAnimate/js/angular-animate.min',
+        'angular-loading-bar' : 'bower_components/angular-loading-bar/build/loading-bar.min'
         //js文件
         //'bootstrap': "../scripts/bootstrap",
         //.....以及其他的js文件，这里省略
@@ -37,7 +39,9 @@ require.config({
         'angular-translate-loader-static-files':['angular','angular-translate'],
         'ui.bootstrap':['angular'],
         'ocLazyLoad':['angular'],
-        'ui-grid':['angular']
+        'ui-grid':['angular'],
+        //'ngAnimate':['angular'],
+        'angular-loading-bar':['angular']
     },
     deps:['js/bootstrap'],waitSeconds: 60,
     urlArgs: "bust=" + (new Date()).getTime()  //防止读取缓存，调试用

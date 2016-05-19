@@ -11,7 +11,8 @@ define([
     return {
         init :function(modules,routers){
             //console.log(routers)
-            var deps =['ui.router','ui.bootstrap','oc.lazyLoad','appMenuDirectiveModule','ngCookies', 'pascalprecht.translate','ui.grid'];
+            var deps =['ui.router','ui.bootstrap','oc.lazyLoad','appMenuDirectiveModule','ngCookies', 'pascalprecht.translate','ui.grid',
+        'angular-loading-bar'];
             for(var index in modules){
                 deps.push(modules[index].name);
             }

@@ -13,12 +13,14 @@ define(['require',
         'angular-translate',
         'angular-translate-loader-static-files',
         'ui-grid',
+        //'ngAnimate',
+        'angular-loading-bar'
     ].concat(loader.loadModules(config.modules));
     var depsAll = deps.concat(loader.loadRouteRules(config.modules))
     require(depsAll,function(document,app){
         var modules = []
 
-        for(var index = 6; index < deps.length; index++){
+        for(var index = 7; index < deps.length; index++){
             modules.push(arguments[index]);
         }
         var routers = [];

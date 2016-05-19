@@ -4,14 +4,35 @@ var userDao = require('../dao/userDao');
 
 //用户登录
 router.get('/doGetUserBankInfo',function (req,res,next) {
+  if(!req.session.user){
+    res.status(420).send('用户未登录.');
+    return;
+  }else{
+    next();
+  }
+},function (req,res) {
   userDao.queryById(req,res,next);
 });
 
 router.post('/doUpdateUser',function (req,res,next) {
+  if(!req.session.user){
+    res.status(420).send('用户未登录.');
+    return;
+  }else{
+    next();
+  }
+},function (req,res,next) {
   userDao.updateBank(req,res,next);
 });
 
 router.post('/doApplyPayMoney',function (req,res,next) {
+  if(!req.session.user){
+    res.status(420).send('用户未登录.');
+    return;
+  }else{
+    next();
+  }
+},function (req,res) {
   if(!req.body||!req.body.tyear||!req.body.tmonth){
     res.status(500).send("数据错误");
     return;
